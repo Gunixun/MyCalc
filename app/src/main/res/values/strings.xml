@@ -11,8 +11,12 @@
     <string name="key_9">9</string>
     <string name="key_0">0</string>
     <string name="key_dot">.</string>
+    <string name="key_div">/</string>
     <string name="key_equals">=</string>
-    <string name="key_plus">+</string>
-    <string name="key_minus">-</string>
+    <string name="key_sum">+</string>
+    <string name="key_sub">-</string>
     <string name="key_mult">*</string>
+    <string name="key_clean">AC</string>
+    <string name="key_exhibitor">e</string>
+    <string name="key_percent">%</string>
 </resources>
