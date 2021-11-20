@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="def_background">#000000</color>
+    <color name="text_operation_button">#FF8800</color>
+    <color name="def_text_color">#FFFFFF</color>
+    <color name="color_border">#FF8800</color>
+</resources>

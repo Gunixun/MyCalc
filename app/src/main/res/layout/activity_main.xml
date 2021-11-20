@@ -1,18 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:columnCount="4"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        style="@style/text_view"
+        android:id="@+id/text_view_data"
+        android:layout_rowWeight="2"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        style="@style/text_view_result"
+        android:id="@+id/text_view_result"
+        android:layout_rowWeight="1"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/button_number_style"
+        android:id="@+id/button_7"
+        android:text="@string/key_7"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/button_number_style"
+        android:id="@+id/button_8"
+        android:text="@string/key_8"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/button_number_style"
+        android:id="@+id/button_9"
+        android:text="@string/key_9"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/button_operation_style"
+        android:id="@+id/button_mult"
+        android:text="@string/key_mult"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/button_number_style"
+        android:id="@+id/button_4"
+        android:text="@string/key_4"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/button_number_style"
+        android:id="@+id/button_5"
+        android:text="@string/key_5"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/button_number_style"
+        android:id="@+id/button_6"
+        android:text="@string/key_6"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/button_operation_style"
+        android:id="@+id/button_minus"
+        android:text="@string/key_minus"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/button_number_style"
+        android:id="@+id/button_1"
+        android:text="@string/key_1"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/button_number_style"
+        android:id="@+id/button_2"
+        android:text="@string/key_2" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/button_number_style"
+        android:id="@+id/button_3"
+        android:text="@string/key_3" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/button_operation_style"
+        android:id="@+id/button_plus"
+        android:text="@string/key_plus" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/button_number_style"
+        android:id="@+id/button_0"
+        android:text="@string/key_0" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/button_number_style"
+        android:id="@+id/button_dot"
+        android:text="@string/key_dot" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/button_operation_with_icon_style"
+        android:id="@+id/button_backspace"
+        app:icon="@drawable/backspace"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/button_operation_style"
+        android:id="@+id/button_equals"
+        android:text="@string/key_equals" />
+
+</GridLayout>
