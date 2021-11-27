@@ -47,8 +47,9 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         if (savedInstanceState != null) {
             textViewData.setText(savedInstanceState.getString(ARGUSERSTRING));
             presenter.setUserStr(textViewData.getText().toString());
-            if (!savedInstanceState.getBoolean(ARGISWRITE))
+            if (!savedInstanceState.getBoolean(ARGISWRITE)) {
                 textViewResult.callOnClick();
+            }
         }
 
     }

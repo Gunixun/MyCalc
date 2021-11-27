@@ -12,9 +12,9 @@ import java.util.regex.Pattern;
 
 
 enum Position {
-    Value1,
-    Value2,
-    Operation,
+    VALUE_1,
+    VALUE_2,
+    OPERATION,
 
 }
 
@@ -46,11 +46,13 @@ public class CalculatorPresenter {
     }
 
     public void onKeyPressed(@NonNull Symbol symbol) {
-        if (symbol == Symbol.BACKSPACE && !view.isWriting())
+        if (symbol == Symbol.BACKSPACE && !view.isWriting()) {
             return;
+        }
 
-        if (!view.isWriting())
+        if (!view.isWriting()){
             clean();
+        }
 
         if (symbol == Symbol.BACKSPACE) {
             if (userStr.length() == 1) {
@@ -107,33 +109,34 @@ public class CalculatorPresenter {
             boolean isFloat = false;
 
             try {
-                a = Integer.parseInt(data.get(Position.Value1.ordinal()));
+                a = Integer.parseInt(data.get(Position.VALUE_1.ordinal()));
             } catch (NumberFormatException e) {
-                a = Float.parseFloat(data.get(Position.Value1.ordinal()));
+                a = Float.parseFloat(data.get(Position.VALUE_1.ordinal()));
                 isFloat = true;
             }
 
             try {
-                b = Integer.parseInt(data.get(Position.Value2.ordinal()));
+                b = Integer.parseInt(data.get(Position.VALUE_2.ordinal()));
             } catch (NumberFormatException e) {
-                b = Float.parseFloat(data.get(Position.Value2.ordinal()));
+                b = Float.parseFloat(data.get(Position.VALUE_2.ordinal()));
                 isFloat = true;
             }
             float res = calculator.performOperation(
-                    (float) a.intValue(), (float) b.intValue(), data.get(Position.Operation.ordinal())
+                    (float) a.intValue(), (float) b.intValue(), data.get(Position.OPERATION.ordinal())
             );
-            if (isFloat)
+            if (isFloat) {
                 return String.valueOf(res);
-            else
+            } else {
                 return String.valueOf((int) res);
+            }
 
         } else if (data.size() == 0) {
             return null;
         } else {
             try {
-                return String.valueOf(Integer.parseInt(data.get(Position.Value1.ordinal())));
+                return String.valueOf(Integer.parseInt(data.get(Position.VALUE_1.ordinal())));
             } catch (NumberFormatException e) {
-                return String.valueOf(Float.parseFloat(data.get(Position.Value1.ordinal())));
+                return String.valueOf(Float.parseFloat(data.get(Position.VALUE_1.ordinal())));
             }
         }
     }
@@ -147,8 +150,9 @@ public class CalculatorPresenter {
                 return res;
             }
         }
-        if (!text.equals(""))
+        if (!text.equals("")) {
             res.add(text);
+        }
         return res;
     }
 
@@ -156,21 +160,22 @@ public class CalculatorPresenter {
         List<String> res = parse(text);
 
         if (res.size() == sizeFullString) {
-            float a = Float.parseFloat(res.get(Position.Value1.ordinal()));
-            float b = Float.parseFloat(res.get(Position.Value2.ordinal()));
+            float a = Float.parseFloat(res.get(Position.VALUE_1.ordinal()));
+            float b = Float.parseFloat(res.get(Position.VALUE_2.ordinal()));
 
             b /= 100;
             return a + res.get(2) + a * b;
         } else if (res.size() == 1) {
-            return String.valueOf(Float.parseFloat(res.get(Position.Value1.ordinal())) / 100);
+            return String.valueOf(Float.parseFloat(res.get(Position.VALUE_1.ordinal())) / 100);
         }
         return text;
     }
 
     private String applyExhibitor(String text) {
         List<String> res = parse(text);
-        if (res.size() == 2 || res.size() == 0)
+        if (res.size() == 2 || res.size() == 0) {
             return text + Symbol.EXHIBITOR.symbol;
+        }
         return text;
     }
 
