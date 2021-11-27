@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BaseButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_margin">@dimen/margin</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:backgroundTint">@color/def_background</item>
+        <item name="cornerRadius">@dimen/corner_radius</item>
+    </style>
+    <style name="ButtonOperationStyle" parent="BaseButton">
+        <item name="android:textColor">@color/text_operation_button</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="ButtonNumberStyle" parent="BaseButton">
+        <item name="android:textColor">@color/def_text_color</item>
+    </style>
+    <style name="ButtonOperationWithIconStyle" parent="ButtonOperationStyle">
+        <item name="iconPadding">0dp</item>
+        <item name="iconTint">@color/text_operation_button</item>
+        <item name="iconGravity">textStart</item>
+        <item name="android:textColor">@color/text_operation_button</item>
+    </style>
+    <style name="TextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/def_text_color</item>
+        <item name="android:textSize">@dimen/text_size_active</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_rowWeight">2</item>
+        <item name="android:gravity">right</item>
+    </style>
+    <style name="TextViewResult" parent="TextView">
+        <item name="android:background">@drawable/view_top_bottom_border</item>
+        <item name="android:layout_rowWeight">1</item>
+    </style>
+    <style name="RadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/def_text_color</item>
+    </style>
+</resources>
