@@ -19,4 +19,7 @@
     <string name="key_clean">AC</string>
     <string name="key_exhibitor">e</string>
     <string name="key_percent">%</string>
+    <string name="def_theme">Тема по умолчанию</string>
+    <string name="light_theme">Светлая тема</string>
+    <string name="dark_theme">Темная тема</string>
 </resources>

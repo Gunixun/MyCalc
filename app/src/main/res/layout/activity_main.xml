@@ -7,6 +7,16 @@
     android:columnCount="4"
     tools:context=".MainActivity">
 
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="3" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/choose_theme"
+        style="@style/ButtonOperationWithIconStyle"
+        app:icon="@drawable/settings" />
+
     <TextView
         android:id="@+id/text_view_data"
         style="@style/TextView"

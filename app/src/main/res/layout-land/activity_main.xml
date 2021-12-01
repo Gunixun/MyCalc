@@ -18,6 +18,11 @@
         android:layout_columnSpan="7" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/choose_theme"
+        style="@style/ButtonOperationWithIconStyle"
+        app:icon="@drawable/settings" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_clean"
         style="@style/ButtonOperationStyle"
         android:text="@string/key_clean" />
@@ -116,7 +121,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_equals"
         style="@style/ButtonOperationStyle"
-        android:text="@string/key_equals"
-        android:layout_columnSpan="2"/>
+        android:text="@string/key_equals" />
 
 </GridLayout>
