@@ -1,14 +1,21 @@
 package com.example.mycalc;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.TypedValue;
-import android.view.View;
 import android.widget.TextView;
 
 import com.example.mycalc.tools.CalcImpl;
+import com.example.mycalc.tools.StorageTheme;
 import com.example.mycalc.tools.Symbol;
 import com.example.mycalc.ui.CalculatorPresenter;
 import com.example.mycalc.ui.CalculatorView;
@@ -28,10 +35,26 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
     private boolean write = true;
 
     private CalculatorPresenter presenter;
+    private StorageTheme storage;
+
+
+    private final ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if (result.getResultCode() == Activity.RESULT_OK) {
+                int modeTheme = result.getData().getIntExtra(SelectThemeActivity.EXTRA_THEME, AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                storage.saveModeTheme(modeTheme);
+                recreate();
+            }
+        }
+    });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        storage = new StorageTheme(this);
+
+        AppCompatDelegate.setDefaultNightMode(storage.getSavedModeTheme());
         setContentView(R.layout.activity_main);
 
         textViewData = findViewById(R.id.text_view_data);
@@ -90,16 +113,22 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
                 });
         }
 
-        textViewResult.setOnClickListener((View v) -> {
+        textViewResult.setOnClickListener(v -> {
             textViewData.setTextSize(TypedValue.COMPLEX_UNIT_PX, sizeInactive);
             textViewResult.setTextSize(TypedValue.COMPLEX_UNIT_PX, sizeActive);
             write = false;
         });
 
-        textViewData.setOnClickListener((View v) -> {
+        textViewData.setOnClickListener(v -> {
             textViewData.setTextSize(TypedValue.COMPLEX_UNIT_PX, sizeActive);
             textViewResult.setTextSize(TypedValue.COMPLEX_UNIT_PX, sizeInactive);
             write = true;
+        });
+
+        findViewById(R.id.choose_theme).setOnClickListener(v->{
+            Intent intent = new Intent(this, SelectThemeActivity.class);
+            intent.putExtra(SelectThemeActivity.EXTRA_THEME, storage.getSavedModeTheme());
+            launcher.launch(intent);
         });
     }
 
